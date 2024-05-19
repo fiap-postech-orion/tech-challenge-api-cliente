@@ -15,27 +15,27 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class Cliente implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class Cliente implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@Column(nullable = true, length = 255)
-	private String nome;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(nullable = true, unique = true, length = 14)
-	private String cpf;
+    @Column(nullable = true, length = 255)
+    private String nome;
 
-	@Column(nullable = true, length = 255)
-	private String email;
+    @Column(nullable = true, unique = true, length = 14)
+    private String cpf;
 
-	@Column(nullable = true,length = 255)
-	private String senha;
+    @Column(nullable = true, length = 255)
+    private String email;
 
-	@Convert(converter = TrueFalseConverter.class)
-	@Column(nullable = false)
-	private boolean status;
+    @Column(nullable = true, length = 255)
+    private String senha;
+
+    @Convert(converter = TrueFalseConverter.class)
+    @Column(nullable = false)
+    private boolean status;
 
 }

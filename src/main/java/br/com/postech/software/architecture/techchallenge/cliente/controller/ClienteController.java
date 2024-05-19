@@ -31,7 +31,7 @@ public class ClienteController {
             @RequestParam(required = false, name = "nome") String nome,
             @RequestParam(required = false, name = "email") String email
     ) {
-        return new ResponseEntity<>(clienteService.findAllByCpfOrNomeOrEmail(cpf,nome,email), HttpStatus.OK);
+        return new ResponseEntity<>(clienteService.findAllByCpfOrNomeOrEmail(cpf, nome, email), HttpStatus.OK);
     }
 
     @GetMapping(path = "{idCliente}", produces = MediaType.APPLICATION_JSON)

@@ -1,12 +1,12 @@
 package br.com.postech.software.architecture.techchallenge.cliente.service.impl;
 
-import br.com.postech.software.architecture.techchallenge.cliente.dto.ValidaClienteResponseDTO;
-import br.com.postech.software.architecture.techchallenge.cliente.service.ClientService;
 import br.com.postech.software.architecture.techchallenge.cliente.configuration.ModelMapperConfiguration;
 import br.com.postech.software.architecture.techchallenge.cliente.dto.ClienteDTO;
+import br.com.postech.software.architecture.techchallenge.cliente.dto.ValidaClienteResponseDTO;
 import br.com.postech.software.architecture.techchallenge.cliente.exception.BusinessException;
 import br.com.postech.software.architecture.techchallenge.cliente.model.Cliente;
 import br.com.postech.software.architecture.techchallenge.cliente.repository.ClienteJpaRepository;
+import br.com.postech.software.architecture.techchallenge.cliente.service.ClientService;
 import br.com.postech.software.architecture.techchallenge.cliente.util.CpfCnpjUtil;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +36,7 @@ public class ClienteServiceImpl implements ClientService {
                 .map(cliente -> MAPPER.map(cliente, ClienteDTO.class))
                 .collect(Collectors.toList());
     }
+
     @Override
     public ClienteDTO findById(Integer id) {
         Optional<Cliente> cliente = clienteJpaRepository.findByIdAndStatus(id, Boolean.TRUE);
@@ -52,11 +53,11 @@ public class ClienteServiceImpl implements ClientService {
     @Override
     public ClienteDTO save(ClienteDTO clienteDTO) {
         var cliente = MAPPER.map(clienteDTO, Cliente.class);
-        
-        if(Objects.nonNull(cliente.getCpf())) {
-        	cliente.setCpf(CpfCnpjUtil.removeMaskCPFCNPJ(cliente.getCpf()));
+
+        if (Objects.nonNull(cliente.getCpf())) {
+            cliente.setCpf(CpfCnpjUtil.removeMaskCPFCNPJ(cliente.getCpf()));
         }
-        
+
         cliente = clienteJpaRepository.save(cliente);
 
         return MAPPER.map(cliente, ClienteDTO.class);
