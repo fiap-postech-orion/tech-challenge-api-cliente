@@ -1,7 +1,7 @@
 package br.com.postech.software.architecture.techchallenge.cliente.exception;
 
 public class PersistenceException extends ApplicationException {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     public PersistenceException(String mensagem) {
         super(mensagem);

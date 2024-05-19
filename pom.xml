@@ -11,8 +11,8 @@
 	<groupId>br.com.postech.software.architecture</groupId>
 	<artifactId>tech-challenge-pos-tech</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
-	<name>tech-challenge</name>
-	<description>Tech Change - Pos Tech de Arquitetura de Software</description>
+	<name>tech-challenge-cliente</name>
+	<description>Tech Challenge - Pos Tech de Arquitetura de Software</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
