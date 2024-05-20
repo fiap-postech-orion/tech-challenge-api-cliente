@@ -6,10 +6,9 @@ on:
     types: [ closed ]
 
 env:
-  ECR_REPOSITORY: 084477714284.dkr.ecr.us-east-1.amazonaws.com/techchallenge-eks
+  ECR_REPOSITORY: 084477714284.dkr.ecr.us-east-1.amazonaws.com/cliente-api-repository
   DOCKER_IMAGE_NAME: docker-image-api-cliente
   DOCKER_IMAGE_TAG: latest
-  K8S_DEPLOYMENT_NAME: app
 
 jobs:
   build:
