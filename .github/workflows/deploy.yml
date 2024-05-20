@@ -8,6 +8,7 @@ on:
 env:
   ECR_REPOSITORY: 084477714284.dkr.ecr.us-east-1.amazonaws.com/techchallenge-eks
   DOCKER_IMAGE_NAME: docker-image-api-cliente
+  DOCKER_IMAGE_TAG: latest
   K8S_DEPLOYMENT_NAME: app
 
 jobs:
@@ -56,7 +57,7 @@ jobs:
 
       # Tags the Docker image with the ECR repository URL
       - name: Tag Docker image
-        run: docker tag ${{ env.DOCKER_IMAGE_NAME }}:latest ${{ env.ECR_REPOSITORY }}:latest
+        run: docker tag ${{ env.DOCKER_IMAGE_NAME }}:latest ${{ env.ECR_REPOSITORY }}:${{ env.DOCKER_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 
       # Saves the Docker image as an artifact
       - name: Save Docker image as artifact
