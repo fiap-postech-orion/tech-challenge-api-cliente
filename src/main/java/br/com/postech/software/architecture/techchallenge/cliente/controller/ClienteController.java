@@ -34,7 +34,7 @@ public class ClienteController {
         return new ResponseEntity<>(clienteService.findAllByCpfOrNomeOrEmail(cpf, nome, email), HttpStatus.OK);
     }
 
-    @GetMapping(path = "{idCliente}", produces = MediaType.APPLICATION_JSON)
+    @GetMapping(path = "/{idCliente}", produces = MediaType.APPLICATION_JSON)
     public ResponseEntity<ClienteDTO> buscarCliente(@PathVariable("idCliente") Integer idCliente) throws Exception {
         return new ResponseEntity<>(clienteService.findById(idCliente), HttpStatus.OK);
     }
@@ -45,8 +45,8 @@ public class ClienteController {
         return new ResponseEntity<>(clienteService.save(clienteDTO), HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
-    public ResponseEntity<ClienteDTO> atualizarCliente(@PathVariable Integer id, @RequestBody ClienteDTO clienteDTO) {
+    @PutMapping(value = "/{idCliente}", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
+    public ResponseEntity<ClienteDTO> atualizarCliente(@PathVariable("idCliente") Integer id, @RequestBody ClienteDTO clienteDTO) {
         ClienteDTO updatedClienteDTO = clienteService.atualizarCliente(id, clienteDTO);
 
         return new ResponseEntity<>(updatedClienteDTO, HttpStatus.OK);
@@ -59,7 +59,7 @@ public class ClienteController {
         return new ResponseEntity<>(clienteDTO, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/valida", produces = MediaType.APPLICATION_JSON)
+    @PostMapping(value = "/valida", produces = MediaType.APPLICATION_JSON)
     public ResponseEntity<ValidaClienteResponseDTO> validaCliente(@RequestBody ClienteDTO clienteDTO) {
         return new ResponseEntity<>(clienteService.valideCliente(clienteDTO), HttpStatus.OK);
     }
