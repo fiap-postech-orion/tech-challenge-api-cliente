@@ -25,5 +25,4 @@ public class ClienteDTO {
     @NotNull
     private String senha;
     private Boolean status;
-    private Boolean isAnonymous;
 }

@@ -102,12 +102,6 @@ public class ClienteServiceImpl implements ClientService {
     }
 
     public ValidaClienteResponseDTO valideCliente(ClienteDTO clienteDTO) {
-        if (clienteDTO.getIsAnonymous()) {
-            return new ValidaClienteResponseDTO().toBuilder()
-                    .setClienteDTO(clienteDTO)
-                    .setIsValid(true)
-                    .build();
-        }
         if (isThereClienteById(clienteDTO.getId().intValue())) {
             return new ValidaClienteResponseDTO().toBuilder()
                     .setClienteDTO(clienteDTO)
