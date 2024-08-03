@@ -6,7 +6,7 @@ import br.com.postech.software.architecture.techchallenge.cliente.dto.ValidaClie
 import br.com.postech.software.architecture.techchallenge.cliente.exception.BusinessException;
 import br.com.postech.software.architecture.techchallenge.cliente.model.Cliente;
 import br.com.postech.software.architecture.techchallenge.cliente.repository.ClienteJpaRepository;
-import br.com.postech.software.architecture.techchallenge.cliente.service.ClientService;
+import br.com.postech.software.architecture.techchallenge.cliente.service.ClienteService;
 import br.com.postech.software.architecture.techchallenge.cliente.util.CpfCnpjUtil;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class ClienteServiceImpl implements ClientService {
+public class ClienteServiceImpl implements ClienteService {
 
     private final ClienteJpaRepository clienteJpaRepository;
     private static final ModelMapper MAPPER = ModelMapperConfiguration.getModelMapper();

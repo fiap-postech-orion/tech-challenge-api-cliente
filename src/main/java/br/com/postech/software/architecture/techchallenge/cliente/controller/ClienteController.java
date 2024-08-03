@@ -2,7 +2,7 @@ package br.com.postech.software.architecture.techchallenge.cliente.controller;
 
 import br.com.postech.software.architecture.techchallenge.cliente.dto.ClienteDTO;
 import br.com.postech.software.architecture.techchallenge.cliente.dto.ValidaClienteResponseDTO;
-import br.com.postech.software.architecture.techchallenge.cliente.service.ClientService;
+import br.com.postech.software.architecture.techchallenge.cliente.service.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ import java.util.List;
 public class ClienteController {
 
     @Autowired
-    private ClientService clienteService;
+    private ClienteService clienteService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON)
     public ResponseEntity<List<ClienteDTO>> listarClientes() {
