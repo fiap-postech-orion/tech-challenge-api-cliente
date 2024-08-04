@@ -12,14 +12,20 @@ import org.springframework.stereotype.Service;
 @Component
 public class RabbitMQProducer {
 
-    private static final String exchange = "";
+    private static final String exchange = "api";
+    private static final String validaProdutosRoutingKey = "validaProdutos";
 
-    private static final String validaClienteRoutingKey = "validaCliente";
+    private static final String erroValidacaoRoutingKey = "erroValidacao";
 
     private RabbitTemplate template;
 
     public void sendToValidaProdutosQueue(ValidaProdutoRequestDTO validaProduto) {
         log.info("Message send: [{}]", validaProduto.toString());
-        template.convertAndSend(exchange, validaClienteRoutingKey, validaProduto);
+        template.convertAndSend(exchange, validaProdutosRoutingKey, validaProduto);
+    }
+
+    public void sendToErroValidacaoQueue(ValidaProdutoRequestDTO validaProduto) {
+        log.info("Message send: [{}]", validaProduto.toString());
+        template.convertAndSend(exchange, erroValidacaoRoutingKey, validaProduto);
     }
 }
