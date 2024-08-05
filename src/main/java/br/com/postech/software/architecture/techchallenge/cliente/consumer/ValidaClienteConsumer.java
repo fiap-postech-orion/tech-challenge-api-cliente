@@ -32,7 +32,7 @@ public class ValidaClienteConsumer {
             rabbitMQProducer.sendToValidaProdutosQueue(new ValidaProdutoRequestDTO(produtos));
         }
         else {
-            rabbitMQProducer.sendToErroValidacaoQueue(validaClienteDTO);
+            rabbitMQProducer.sendToErroValidacaoQueue(validaClienteDTO, pedidoDTO.getNumeroPedido().intValue());
         }
     }
 }
