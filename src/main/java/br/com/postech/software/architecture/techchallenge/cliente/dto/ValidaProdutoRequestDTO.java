@@ -5,13 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
-@Builder(toBuilder = true, setterPrefix = "set")
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ValidaClienteResponseDTO {
+public class ValidaProdutoRequestDTO {
 
-    private boolean isValid;
-    private String errorMessage;
-    private ClienteDTO clienteDTO;
+    private List<ProdutoDTO> produtoDTOs;
 }

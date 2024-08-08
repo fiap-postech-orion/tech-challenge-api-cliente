@@ -6,7 +6,7 @@ import br.com.postech.software.architecture.techchallenge.cliente.exception.Busi
 
 import java.util.List;
 
-public interface ClientService {
+public interface ClienteService {
 
     List<ClienteDTO> listarClientesAtivos();
 

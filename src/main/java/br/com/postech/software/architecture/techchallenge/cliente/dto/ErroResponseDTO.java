@@ -5,13 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @Builder(toBuilder = true, setterPrefix = "set")
 @AllArgsConstructor
 @NoArgsConstructor
-public class ValidaClienteResponseDTO {
+public class ErroResponseDTO {
 
+    private Integer pedidoId;
     private boolean isValid;
     private String errorMessage;
-    private ClienteDTO clienteDTO;
 }

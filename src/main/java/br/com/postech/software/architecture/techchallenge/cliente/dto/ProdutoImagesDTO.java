@@ -1,17 +1,17 @@
 package br.com.postech.software.architecture.techchallenge.cliente.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder(toBuilder = true, setterPrefix = "set")
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ValidaClienteResponseDTO {
+public class ProdutoImagesDTO {
 
-    private boolean isValid;
-    private String errorMessage;
-    private ClienteDTO clienteDTO;
+	@NotNull(message = "É obrigatório informar o caminho da imagem.")
+	private String path;
 }
