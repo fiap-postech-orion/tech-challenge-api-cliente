@@ -64,4 +64,9 @@ public class ClienteController {
     public ResponseEntity<ValidaClienteResponseDTO> validaCliente(@RequestBody ClienteDTO clienteDTO) {
         return new ResponseEntity<>(clienteService.valideCliente(clienteDTO), HttpStatus.OK);
     }
+
+    @PostMapping(value = "/anonymize/{id}")
+    public void anonymize(@PathVariable Integer id) {
+        clienteService.anonymize(id);
+    }
 }
