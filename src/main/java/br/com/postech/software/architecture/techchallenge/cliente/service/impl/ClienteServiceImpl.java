@@ -126,4 +126,17 @@ public class ClienteServiceImpl implements ClientService {
                 .setErrorMessage("Cliente não encontrado")
                 .build();
     }
+
+    public void anonymize(Integer clientId) {
+        Cliente cliente = clienteJpaRepository.findById(clientId)
+                .orElseThrow();
+
+        cliente.setSenha("");
+        cliente.setNome("");
+        cliente.setCpf("");
+        cliente.setEmail("");
+
+        clienteJpaRepository.save(cliente);
+    }
+
 }
