@@ -41,6 +41,7 @@ public class ClienteController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
     public ResponseEntity<ClienteDTO> salvarCliente(@RequestBody @Valid ClienteDTO clienteDTO) throws Exception {
+        clienteDTO.sanitiseDTO();
         clienteDTO.setStatus(Boolean.TRUE);
         return new ResponseEntity<>(clienteService.save(clienteDTO), HttpStatus.CREATED);
     }

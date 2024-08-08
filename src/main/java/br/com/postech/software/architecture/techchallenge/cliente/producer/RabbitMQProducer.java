@@ -1,6 +1,7 @@
 package br.com.postech.software.architecture.techchallenge.cliente.producer;
 
 import br.com.postech.software.architecture.techchallenge.cliente.dto.ErroResponseDTO;
+import br.com.postech.software.architecture.techchallenge.cliente.dto.PedidoDTO;
 import br.com.postech.software.architecture.techchallenge.cliente.dto.ValidaClienteResponseDTO;
 import br.com.postech.software.architecture.techchallenge.cliente.dto.ValidaProdutoRequestDTO;
 import lombok.AllArgsConstructor;
@@ -21,9 +22,9 @@ public class RabbitMQProducer {
 
     private RabbitTemplate template;
 
-    public void sendToValidaProdutosQueue(ValidaProdutoRequestDTO validaProduto) {
-        log.info("Message send: [{}]", validaProduto.toString());
-        template.convertAndSend(exchange, validaProdutosRoutingKey, validaProduto);
+    public void sendToValidaProdutosQueue(PedidoDTO pedidoDTO) {
+        log.info("Message send: [{}]", pedidoDTO.toString());
+        template.convertAndSend(exchange, validaProdutosRoutingKey, pedidoDTO);
     }
 
     public void sendToErroValidacaoQueue(ValidaClienteResponseDTO valida, Integer numeroPedido) {

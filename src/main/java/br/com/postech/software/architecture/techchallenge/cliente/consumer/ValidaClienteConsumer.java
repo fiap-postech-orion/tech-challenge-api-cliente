@@ -29,7 +29,7 @@ public class ValidaClienteConsumer {
         if(validaClienteDTO.isValid()){
             List<ProdutoDTO> produtos = pedidoDTO.getProdutos().stream()
                     .map(pedidoProduto -> pedidoProduto.getProduto()).collect(Collectors.toList());
-            rabbitMQProducer.sendToValidaProdutosQueue(new ValidaProdutoRequestDTO(produtos));
+            rabbitMQProducer.sendToValidaProdutosQueue(pedidoDTO);
         }
         else {
             rabbitMQProducer.sendToErroValidacaoQueue(validaClienteDTO, pedidoDTO.getNumeroPedido().intValue());
